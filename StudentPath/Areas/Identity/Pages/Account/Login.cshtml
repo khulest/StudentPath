@@ -1,0 +1,226 @@
+﻿@page
+@model LoginModel
+
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: space-between; /* Ensure space between login and image sections */
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+        max-width: auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        backdrop-filter: blur(10px); /* Background blur effect */
+        margin-top: 50px;
+    }
+
+    .additional-container {
+        display: flex;
+        justify-content: space-between; /* Ensure space between login and image sections */
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+        max-width: auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        backdrop-filter: blur(10px); /* Background blur effect */
+        margin-top: 50px;
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+        border: none; /* Remove border */
+        border-radius: 10px; /* Soft corners */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    }
+
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarge image on hover */
+        }
+
+    .card-body {
+        background-color: rgba(255, 255, 255, 0.1); /* Even more transparent background for the body */
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .card-header {
+        background-color: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background for header */
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px 10px 0 0; /* Rounded header corners */
+    }
+
+    
+    .image-container {
+        padding-left: 20px; /* Space between image and login form */
+        flex-grow: 1; /* Allow the image column to grow if necessary */
+    }
+
+    .login-image {
+        width: 100%; /* Make the image take up full width of its container */
+        height: auto;
+        border-radius: 10px; /* Rounded corners for image */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Soft shadow for image */
+    }
+
+       
+    
+
+    .empowerment-text {
+        font-size: 1.8rem; /* Increase the size of the text */
+
+        color: #f7f7f7; /* Slightly off-white for better contrast */
+        background-color: rgba(0, 0, 0, 0.3); /* Increase transparency */
+        padding: 10px 20px; /* Add padding for better spacing */
+        border-radius: 8px; /* Round the corners of the background */
+        display: inline-block; /* Make it look like a block */
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for emphasis */
+    }
+
+    .bus-image {
+        width: auto; /* Set a specific width */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3); /* Add a soft shadow */
+        margin: 20px 0; /* Add margin for spacing */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+    }
+
+        .bus-image:hover {
+            transform: scale(1.05); /* Slightly enlarge image on hover */
+        }
+
+
+
+
+</style>
+
+    
+<div class="container additional-container mt-5">
+    <marquee direction="right" behavior="alternate" scrollamount="15">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <h1>Welcome to TrackMyStudent</h1>
+           
+        </div>
+    </div>
+    </marquee>
+</div>
+<div class="container login-container">
+    <div class="row">
+        <!-- Login Form Column -->
+        <div class="col-md-6">
+            <div class="card shadow border-0 mt-4" style="max-width: 600px;">
+                <div class="card-header bg-dark bg-gradient ml-0 py-2">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h2 class="py-2 text-white">Log In</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section>
+                                <form id="account" method="post">
+                                    <h3 class="border-bottom pb-3 mb-4 text-secondary text-center">Use a local account to log in</h3>
+                                    <hr />
+                                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                                        <label asp-for="Input.Email" class="form-label">Email</label>
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                                        <label asp-for="Input.Password" class="form-label">Password</label>
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="checkbox mb-3">
+                                        <label asp-for="Input.RememberMe" class="form-label">
+                                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                                    </div>
+                                    <div>
+                                        <p><a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a></p>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Column -->
+        <div class="col-md-6 image-container">
+            <div class="container text-left text-black mb-4">
+                <img src="~/images/school.png" alt="Student Safety" class="login-image" />
+                <br />
+                <h3>Why Choose TrackMyStudent?</h3>
+                <p>TrackMyStudent is a comprehensive web application designed to enhance the safety and well-being of students. Our platform allows parents and school staff to monitor attendance, receive real-time updates, and ensure that children are accounted for during school and transportation hours.</p>
+            </div>          
+        </div>
+    </div>
+    
+</div>
+<div class="container additional-container mt-5">
+    
+    <div class="row">
+        <marquee direction="right" behavior="alternate" scrollamount="15">
+        <div class="col-md-12 align-content-center">
+            <!-- Image Column -->
+            <div class="col-md-12 image-container ">
+                <div class="container text-left text-black mb-4">
+
+                    <img src="~/images/bus.png" alt="Student Safety" class="bus-image" />
+
+                      
+                </div>
+            </div>
+        </div>
+        </marquee>
+        <div class ="col-md-12">
+            <!-- text Column -->
+           
+            <div class="empowerment-text ">
+              
+                <h3 class =" text-black">Empowering Student Safety and Engagement</h3>
+                <p class="  text-black">
+                    We are committed to providing real-time updates and transparent communication
+                    to ensure the safety of every student, every day.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

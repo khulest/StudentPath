@@ -1,0 +1,67 @@
+﻿@model StudentPath.Models.ClassAttendence
+
+<h1>Edit</h1>
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+   
+
+</style>
+<h4>ClassAttendence</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClassId" />
+
+            <div class="form-group">
+                <label asp-for="Class" class="control-label"></label>
+                <select asp-for="Class" class="form-control" asp-items="ViewBag.Class"></select>
+                <span asp-validation-for="Class" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input type="text" asp-for="Date" class="form-control" readonly />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Attended" class="control-label"></label>
+                <select asp-for="Attended" class="form-control" asp-items="ViewBag.Attend"></select>
+                <span asp-validation-for="Attended" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TeacherId" class="control-label"></label>
+                <select asp-for="TeacherId" class="form-control" asp-items="ViewBag.TeacherId"></select>
+                <span asp-validation-for="TeacherId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

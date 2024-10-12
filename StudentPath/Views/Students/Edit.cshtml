@@ -1,0 +1,77 @@
+﻿@model StudentPath.Models.Student
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/20874644/pexels-photo-20874644/free-photo-of-school-buses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+<h1>Edit</h1>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StudentId" />
+            <div class="form-group">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentSurname" class="control-label"></label>
+                <input asp-for="StudentSurname" class="form-control" />
+                <span asp-validation-for="StudentSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentAge" class="control-label"></label>
+                <input asp-for="StudentAge" class="form-control" />
+                <span asp-validation-for="StudentAge" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StudentGender" class="control-label"></label>
+                <select asp-for="StudentGender" class="form-control" asp-items="ViewBag.StudentGender"></select>
+                <span asp-validation-for="StudentGender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="StudentGrade" class="control-label"></label>
+                <select asp-for="StudentGrade" class="form-control" asp-items="ViewBag.StudentGrade"></select>
+                <span asp-validation-for="StudentGrade" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="StudentAddress" class="control-label"></label>
+                <input asp-for="StudentAddress" class="form-control" />
+                <span asp-validation-for="StudentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="parentId" class="control-label"></label>
+                <select asp-for="parentId" class="form-control" asp-items="ViewBag.parentId"></select>
+                <span asp-validation-for="parentId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

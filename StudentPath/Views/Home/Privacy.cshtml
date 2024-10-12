@@ -1,0 +1,131 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <style>
+        body {
+            background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+            background-size: cover;
+            height: auto;
+            font-family: Arial, sans-serif;
+        }
+        .privacy-container {
+            display: centre;
+            
+            align-items: center;
+            height: auto;
+            width: 100%;
+            max-width: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            backdrop-filter: blur(10px); /* Background blur effect */
+            margin-top: 50px;
+        }
+
+        h1, h2 {
+            font-family: 'Georgia', serif;
+            color: #4a4a4a;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #5a5a5a;
+        }
+
+        p {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .section-icon {
+            font-size: 30px;
+            color: #5a5a5a;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+            /* Removing the checkmark icons */
+            ul li:before {
+                content: '';
+                padding-right: 10px;
+            }
+
+        .highlight {
+            color: #4a90e2;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container privacy-container">
+        <h1>Privacy Policy</h1>
+        <p>
+            At <span class="highlight">TrackMyStudent</span>, we prioritize your privacy and are committed to protecting the personal information you share with us. This policy outlines how we collect, use, and safeguard your data in connection with our student tracking services.
+        </p>
+
+        <h2><span class="section-icon">🔒</span> Information We Collect</h2>
+        <p>
+            We collect the following information to provide you with personalized and efficient services:
+        </p>
+        <ul>
+            <li><strong>Personal Identification:</strong> Name, contact details, emergency contacts.</li>
+            <li><strong>Attendance Records:</strong> Bus and class attendance data.</li>
+            <li><strong>Notification Preferences:</strong> Settings for receiving important updates.</li>
+            <li><strong>Appointment Scheduling:</strong> Data related to meeting requests with school authorities.</li>
+        </ul>
+
+        <h2><span class="section-icon">📊</span> How We Use Your Information</h2>
+        <p>
+            The information collected is used to:
+        </p>
+        <ul>
+            <li>Ensure accurate student attendance tracking.</li>
+            <li>Send timely notifications and alerts to parents regarding their child’s attendance and school events.</li>
+            <li>Facilitate communication with school authorities for emergency situations or appointment scheduling.</li>
+            <li>Enhance security and safety measures, particularly related to school transportation.</li>
+        </ul>
+
+        <h2><span class="section-icon">🤝</span> Data Sharing and Protection</h2>
+        <p>
+            We do not share your personal data with third parties, except when necessary to provide our services or comply with legal obligations. Your data is securely stored and protected through encryption and strict access controls. Rest assured, we take all reasonable measures to safeguard your information from unauthorized access or disclosure.
+        </p>
+
+        <h2><span class="section-icon">🛠️</span> Your Rights</h2>
+        <p>
+            You have the right to access, update, or request the deletion of your personal data at any time. To do so, please contact our support team via email at <strong>privacy@trackmystudent.com</strong>. We are committed to ensuring that your data is handled in a transparent and respectful manner.
+        </p>
+
+        <h2><span class="section-icon">⚖️</span> Compliance with Regulations</h2>
+        <p>
+            Our privacy practices comply with applicable data protection laws and regulations, including <strong>GDPR</strong> and <strong>FERPA</strong> (Family Educational Rights and Privacy Act). We take every measure to ensure your data is handled in compliance with these regulations.
+        </p>
+
+        <footer>
+            &copy; 2024 TrackMyStudent. All rights reserved.
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

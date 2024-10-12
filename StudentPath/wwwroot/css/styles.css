@@ -1,0 +1,50 @@
+﻿body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a4d38;
+    color: #fff;
+}
+
+.stay-informed-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+    .stay-informed-section h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+
+    .stay-informed-section p {
+        font-size: 1.2em;
+        margin-bottom: 40px;
+    }
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.info-item {
+    background-color: #20634d;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+    color: white;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+    .info-item:hover {
+        background-color: #2b755f;
+    }
+
+.icon {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}

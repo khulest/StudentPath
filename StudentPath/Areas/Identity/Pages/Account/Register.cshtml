@@ -1,0 +1,122 @@
+﻿@page
+@model RegisterModel
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .login-container {
+        display: flex;
+        justify-content: space-between; /* Ensure space between login and image sections */
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+        max-width: auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        backdrop-filter: blur(10px); /* Background blur effect */
+        margin-top: 50px;
+    }
+
+    .card {
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+        border: none; /* Remove border */
+        border-radius: 10px; /* Soft corners */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    }
+
+        .card:hover {
+            transform: scale(1.05); /* Slightly enlarge image on hover */
+        }
+
+    .card-body {
+        background-color: rgba(255, 255, 255, 0.1); /* Even more transparent background for the body */
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .card-header {
+        background-color: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background for header */
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 10px 10px 0 0; /* Rounded header corners */
+    }
+
+</style>
+<div class="container login-container">
+ <div class="card shadow border-0 mt-4">
+    <div class="card-header bg-dark bg-gradient ml-0 py-2">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="py-2 text-white">Register</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <div class="row p-3">
+            <div class="col-md-12">
+                <form id="registerForm" class="row" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                    <h3 class="border-bottom pb-3 mb-4 text-secondary text-center">Create a new account</h3>
+                    
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                    <div class="form-floating mb-3 col-md-6">
+                        <input asp-for="Input.FirstName" class="form-control"  placeholder="Elon" />
+                        <label asp-for="Input.FirstName" class="ms-2 text-muted">FirstName</label>
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <input asp-for="Input.LastName" class="form-control"  placeholder="Dlamini" />
+                        <label asp-for="Input.LastName" class="ms-2 text-muted">LastName</label>
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3 col-md-12">
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                        <label asp-for="Input.Email" class="ms-2 text-muted">Email</label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <label asp-for="Input.Password" class="ms-2 text-muted">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                        <label asp-for="Input.ConfirmPassword" class="ms-2 text-muted">Confirm Password</label>
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <input asp-for="Input.PhoneNumber" class="form-control"  placeholder="0835645228" />
+                        <label asp-for="Input.PhoneNumber" class="ms-2 text-muted">PhoneNumber</label>
+                        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-floating mb-3 col-md-6">
+                        <select asp-for="Input.Role" asp-items="@Model.Input.RoleList" class="form-select">
+                            <option disabled selected>-SelectRole-</option>
+                        </select>
+
+                    </div>
+                    <div class="col-12">
+                        <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary col-12">Register</button>
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+    </div>
+</div>
+ </div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

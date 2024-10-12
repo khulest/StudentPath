@@ -1,0 +1,62 @@
+﻿@model StudentPath.Models.BusAttendence
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/20874644/pexels-photo-20874644/free-photo-of-school-buses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+</style>
+<h1 Class ="text-white">Details</h1>
+
+<div>
+    <h4 Class="text-white">BusAttendence</h4>
+    <hr />
+    <dl class="row  text-white">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BusNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BusNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.student)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Morning_Attendance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Morning_Attendance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Afternoon_Attendance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Afternoon_Attendance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bus_Driver)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bus_Driver.Email)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" Class="text-white" asp-route-id="@Model?.BusId">Edit</a> |
+    <a asp-action="Index" Class="text-white">Back to List</a>
+</div>

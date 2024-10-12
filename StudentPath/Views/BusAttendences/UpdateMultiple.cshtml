@@ -1,0 +1,47 @@
+﻿@model List<StudentPath.Models.BusAttendence>
+
+@{
+    ViewData["Title"] = "Edit Multiple";
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+</style>
+<h1>Edit Multiple Bus Attendences</h1>
+
+<form asp-action="UpdateMultiple" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Bus Number</th>
+                <th>Date</th>
+                <th>Morning Attendance</th>
+                <th>Afternoon Attendance</th>
+                <th>Bus Driver</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => m[i].student.StudentName)</td>
+                    <td>@Html.DropDownListFor(m => m[i].BusNumber, ViewBag.BusNumber as SelectList, new { @class = "form-control" })</td>
+                    <td>@Html.DisplayFor(m => m[i].Date)</td>
+                    <td>@Html.DropDownListFor(m => m[i].Morning_Attendance, ViewBag.Morning_Attendance as SelectList, new { @class = "form-control" })</td>
+                    <td>@Html.DropDownListFor(m => m[i].Afternoon_Attendance, ViewBag.Afternoon_Attendance as SelectList, new { @class = "form-control" })</td>
+                    <td>@Html.DisplayFor(m => m[i].Bus_Driver.Email)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Save Changes" class="btn btn-primary" />
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

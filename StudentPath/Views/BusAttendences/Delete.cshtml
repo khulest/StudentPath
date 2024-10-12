@@ -1,0 +1,101 @@
+﻿@model StudentPath.Models.BusAttendence
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .table {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Merge borders */
+        margin-top: 20px; /* Space above the table */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for the table */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Round corners of the table */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+        .table th, .table td {
+            padding: 12px; /* Add padding for spacing */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border for table rows */
+        }
+
+        .table th {
+            background-color: rgba(0, 123, 255, 0.8); /* Light blue background for headers */
+            color: white; /* White text for headers */
+            font-weight: bold; /* Bold font for headers */
+        }
+
+        .table tr:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Light hover effect on rows */
+        }
+
+        .table a {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .table a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+
+</style>
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BusAttendence</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BusNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BusNumber)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.student)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.student.StudentName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Morning_Attendance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Morning_Attendance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Afternoon_Attendance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Afternoon_Attendance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bus_Driver)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bus_Driver.Email)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="BusId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,109 @@
+﻿@model StudentPath.Models.Student
+
+@{
+    ViewData["Title"] = "Register";
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/20874644/pexels-photo-20874644/free-photo-of-school-buses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .table {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Merge borders */
+        margin-top: 20px; /* Space above the table */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for the table */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Round corners of the table */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+        .table th, .table td {
+            padding: 12px; /* Add padding for spacing */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border for table rows */
+        }
+
+        .table th {
+            background-color: rgba(0, 123, 255, 0.8); /* Light blue background for headers */
+            color: white; /* White text for headers */
+            font-weight: bold; /* Bold font for headers */
+        }
+
+        .table tr:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Light hover effect on rows */
+        }
+
+        .table a {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .table a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+
+</style>
+<h1 Class="text-white">Register A student</h1>
+
+<h4 Class="text-white">Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group text-white">
+                <label asp-for="StudentName" class="control-label"></label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger text-black"></span>
+            </div>
+            <div class="form-group text-white">
+                <label asp-for="StudentSurname" class="control-label"></label>
+                <input asp-for="StudentSurname" class="form-control" />
+                <span asp-validation-for="StudentSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group text-white">
+                <label asp-for="StudentAge" class="control-label"></label>
+                <input asp-for="StudentAge" class="form-control" />
+                <span asp-validation-for="StudentAge" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-white">
+                <label asp-for="StudentGender" class="control-label"></label>
+                <select asp-for="StudentGender" class="form-control" asp-items="ViewBag.StudentGender"></select>
+                <span asp-validation-for="StudentGender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group text-white">
+                <label asp-for="StudentGrade" class="control-label"></label>
+                <select asp-for="StudentGrade" class="form-control" asp-items="ViewBag.StudentGrade"></select>
+                <span asp-validation-for="StudentGrade" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group text-white">
+                <label asp-for="StudentAddress" class="control-label"></label>
+                <input asp-for="StudentAddress" class="form-control" />
+                <span asp-validation-for="StudentAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group text-white">
+                <label asp-for="parentId" class="control-label"></label>
+                <select asp-for="parentId" class ="form-control" asp-items="ViewBag.parentId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

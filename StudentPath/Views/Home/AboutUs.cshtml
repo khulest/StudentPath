@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+            background-size: cover;
+            height: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .AboutUs-container {
+            display: centre;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            max-width: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            backdrop-filter: blur(10px); /* Background blur effect */
+            margin-top: 50px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="AboutUs-container">
+        <h1 class="text-center">About Us</h1>
+        <p class="text-center">We are dedicated to enhancing educational experiences for students, teachers, and parents.</p>
+
+        <div class="mt-4">
+            <h2>Our Mission</h2>
+            <p>
+                At Student Path, our mission is to provide a reliable platform that connects students, teachers, and parents, ensuring that everyone stays informed and engaged in the educational process. We aim to empower families and educators by offering tools that simplify communication and tracking of student progress.
+            </p>
+        </div>
+
+        <div class="mt-4">
+            <h2>Our Vision</h2>
+            <p>
+                Our vision is to create an inclusive educational ecosystem where every student has the support and resources they need to thrive academically and personally. We strive to bridge the gap between home and school, ensuring that every child has the opportunity to succeed.
+            </p>
+        </div>
+
+      
+
+        <div class="text-center mt-5">
+            <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

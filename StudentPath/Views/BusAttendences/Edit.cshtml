@@ -1,0 +1,111 @@
+﻿@model StudentPath.Models.BusAttendence
+
+@{
+    ViewData["Title"] = "Edit Bus Attendance";
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/20874644/pexels-photo-20874644/free-photo-of-school-buses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+        .table
+
+    {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Merge borders */
+        margin-top: 20px; /* Space above the table */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for the table */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Round corners of the table */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+    .table th, .table td {
+        padding: 12px; /* Add padding for spacing */
+        text-align: left; /* Align text to the left */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border for table rows */
+    }
+
+    .table th {
+        background-color: rgba(0, 123, 255, 0.8); /* Light blue background for headers */
+        color: white; /* White text for headers */
+        font-weight: bold; /* Bold font for headers */
+    }
+
+    .table tr:hover {
+        background-color: rgba(0, 123, 255, 0.1); /* Light hover effect on rows */
+    }
+
+    .table a {
+        color: #007bff; /* Link color */
+        text-decoration: none; /* Remove underline */
+    }
+
+        .table a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+    }
+</style>
+<h1 Class="text-white">Edit Bus Attendance</h1>
+
+<form asp-action="Edit">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Bus Number</th>
+                <th>Student</th>
+                <th>Date</th>
+                <th>Morning Attendance</th>
+                <th>Afternoon Attendance</th>
+                <th>Bus Driver</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <select asp-for="BusNumber" class="form-control" asp-items="ViewBag.BusNumber"></select>
+                    <span asp-validation-for="BusNumber" class="text-danger"></span>
+                </td>
+                <td>
+                    <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                    <span asp-validation-for="StudentId" class="text-danger"></span>
+                </td>
+                <td>
+                    <input asp-for="Date" class="form-control" value="@Model.Date.ToString("yyyy-MM-dd")" readonly />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </td>
+                <td>
+                    <select asp-for="Morning_Attendance" class="form-control" asp-items="ViewBag.Morning_Attendance"></select>
+                    <span asp-validation-for="Morning_Attendance" class="text-danger"></span>
+                </td>
+                <td>
+                    <select asp-for="Afternoon_Attendance" class="form-control" asp-items="ViewBag.Afternoon_Attendance"></select>
+                    <span asp-validation-for="Afternoon_Attendance" class="text-danger"></span>
+                </td>
+                <td>
+                    <select asp-for="Bus_DriverId" class="form-control" asp-items="ViewBag.Bus_DriverId"></select>
+                    <span asp-validation-for="Bus_DriverId" class="text-danger"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="hidden" asp-for="BusId" />
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" Class="text-white">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

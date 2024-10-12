@@ -1,0 +1,150 @@
+﻿@model IEnumerable<StudentPath.Models.Notification>
+
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .cover-container {
+        display: centre;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        max-width: auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        backdrop-filter: blur(10px); /* Background blur effect */
+        margin-top: 50px;
+    }
+
+    .table {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Merge borders */
+        margin-top: 20px; /* Space above the table */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for the table */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Round corners of the table */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+        .table th, .table td {
+            padding: 12px; /* Add padding for spacing */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border for table rows */
+        }
+
+        .table th {
+            background-color: rgba(0, 123, 255, 0.8); /* Light blue background for headers */
+            color: white; /* White text for headers */
+            font-weight: bold; /* Bold font for headers */
+        }
+
+        .table tr:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Light hover effect on rows */
+        }
+
+        .table a {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .table a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+
+    .additional-container {
+        display: flex;
+        justify-content: space-between; /* Ensure space between login and image sections */
+        align-items: flex-start;
+        height: auto;
+        width: 100%;
+        max-width: auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+        border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+        border-radius: 15px; /* Rounded corners */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+        backdrop-filter: blur(10px); /* Background blur effect */
+        margin-top: 50px;
+    }
+</style>
+<div class="additional-container">
+<marquee direction="right" behavior="alternate" scrollamount="15">
+<h1 class="align-content-center">Notifications</h1>
+</marquee>
+</div>
+<div class="container cover-container"
+<h2>Bus Notifications</h2>
+
+<!-- Form to select the date -->
+<form method="get" action="/Home/Notifications">
+    <label for="attendanceDate">Select Date:</label>
+    <!-- Ensure name attribute matches the controller parameter -->
+    <input type="date" id="attendanceDate" name="date" required>
+    <button type="submit">Fetch Records</button>
+</form>
+
+@if (Model.Any()) // Check if the Model has records
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().student.StudentId) <!-- Display student name -->
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().student.StudentName) <!-- Display student name -->
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().BusNumber) <!-- Display bus number -->
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().AttendanceDate) <!-- Display attendance date -->
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().MorningAttendance) <!-- Display morning attendance -->
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().AfternoonAttendance) <!-- Display afternoon attendance -->
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentId) <!-- Display student name -->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentName) <!-- Display student name -->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BusNumber) <!-- Display bus number -->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AttendanceDate) <!-- Display attendance date -->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MorningAttendance) <!-- Display morning attendance -->
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AfternoonAttendance) <!-- Display afternoon attendance -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No notifications exist for the selected date.</p>
+}
+</div>
+

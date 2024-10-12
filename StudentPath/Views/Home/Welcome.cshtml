@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"]</title>
+
+    <style>
+        body {
+            background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+            background-size: cover;
+            height: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .welcome-container {
+            display: centre;
+            align-items: center;
+            height: auto;
+            width: 100%;
+            max-width: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            backdrop-filter: blur(10px); /* Background blur effect */
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border: none; /* Remove border */
+            border-radius: 10px; /* Soft corners */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Soft shadow */
+        }
+
+            .card:hover {
+                transform: scale(1.05); /* Slightly enlarge image on hover */
+            }
+
+        .card-body {
+            background-color: rgba(255, 255, 255, 0.1); /* Even more transparent background for the body */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .card-header {
+            background-color: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background for header */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px 10px 0 0; /* Rounded header corners */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container welcome-container">
+        <h1 class="text-center">Welcome to the Student Path</h1>
+        <p class="text-center">We’re glad to have you here!</p>
+
+        
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Quick Links</h5>
+                        <ul class="list-group">
+                            @if (User.IsInRole("Admin") || User.IsInRole("Teacher"))
+                            {
+                                <li class="list-group-item">
+                                    <a href="@Url.Action("Create", "ClassAttendences")">Class Attendance</a>
+                                </li>
+                            }
+                            @if (User.IsInRole("Admin") || User.IsInRole("Bus_Driver"))
+                            {
+                                <li class="list-group-item">
+                                    <a href="@Url.Action("Create", "BusAttendences")">Bus Attendance</a>
+                                </li>
+                            }
+                            <li class="list-group-item">
+                                <a href="@Url.Action("AboutUs", "Home")">AboutUs</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="@Url.Action("Privacy", "Home")">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="alert alert-info">
+                    <h4 class="alert-heading">Important Information!</h4>
+                    <p>Stay updated with the latest announcements, events, and safety protocols.</p>
+                </div>
+                <p>Use the links on the left to navigate to important sections of the application.</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

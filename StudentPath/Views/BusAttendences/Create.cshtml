@@ -1,0 +1,164 @@
+﻿@model List<StudentPath.Models.BusAttendence>
+@{
+    ViewData["Title"] = "Create Bus Attendance";
+    var currentDate = DateTime.Now.ToString("yyyy-MM-dd"); // Format for HTML date input
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/20874644/pexels-photo-20874644/free-photo-of-school-buses.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .table {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Merge borders */
+        margin-top: 20px; /* Space above the table */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for the table */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Round corners of the table */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+        .table th, .table td {
+            padding: 12px; /* Add padding for spacing */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border for table rows */
+        }
+
+        .table th {
+            background-color: rgba(0, 123, 255, 0.8); /* Light blue background for headers */
+            color: white; /* White text for headers */
+            font-weight: bold; /* Bold font for headers */
+        }
+
+        .table tr:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Light hover effect on rows */
+        }
+
+        .table a {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .table a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+
+</style>
+<h2 Class="text-white">Create Bus Attendance</h2>
+
+<form asp-action="Create">
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Bus Number</th>
+                <th>Morning Attendance</th>
+                <th>Afternoon Attendance</th>
+                <th>Bus Driver</th>
+                <th>Date</th> <!-- Add a new header for the date -->
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < 10; i++)
+            {
+                <tr>
+                    <td>
+                        <select name="[@i].StudentId" class="form-control" onchange="updateBusNumber(this)">
+                            <option value="">Select Student</option>
+                            @foreach (var student in ViewBag.StudentList)
+                            {
+                                <option value="@student.StudentId" data-grade="@student.StudentGrade">@student.StudentName</option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <select name="[@i].BusNumber" class="form-control" id="busNumber_@i">
+                            <option value="">Select Bus Number</option>
+                            <option value="1010">1010</option> <!-- For 8th graders -->
+                            <option value="1011">1011</option> <!-- For 9th graders -->
+                            <option value="1012">1012</option> <!-- For 10th graders -->
+                            <option value="1013">1013</option> <!-- For 11th graders -->
+                            <option value="1014">1014</option> <!-- For 12th graders -->
+                        </select>
+                    </td>
+                    <td>
+                        <select name="[@i].Morning_Attendance" class="form-control">
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                            <option disabled selected>UnMarked</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="[@i].Afternoon_Attendance" class="form-control">
+                            <option value="UnMarked">UnMarked</option>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                           
+                        </select>
+                    </td>
+                    <td>
+                        <select name="[@i].Bus_DriverId" class="form-control">
+                            @foreach (var driver in ViewBag.Bus_DriverId)
+                            {
+                                <option value="@driver.Value">@driver.Text</option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <input type="date" name="[@i].Date" class="form-control" value="@currentDate" readonly /> <!-- Current date input -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index" Class="text-white">Back to List</a>
+</div>
+
+<script>
+    function updateBusNumber(select) {
+        var rowIndex = select.name.match(/\d+/)[0]; // Extracts the index from the name attribute
+        var selectedOption = select.options[select.selectedIndex];
+        var grade = selectedOption.getAttribute("data-grade");
+
+        // Set the bus number based on the grade
+        var busNumberSelect = document.getElementById("busNumber_" + rowIndex);
+        busNumberSelect.value = ""; // Clear previous selection
+
+        switch (grade) {
+            case '8A':
+            case '8B':
+                busNumberSelect.value = "1010"; // 8th Grade
+                break;
+            case '9A':
+            case '9B':
+                busNumberSelect.value = "1011"; // 9th Grade
+                break;
+            case '10A':
+            case '10B':
+                busNumberSelect.value = "1012"; // 10th Grade
+                break;
+            case '11A':
+            case '11B':
+                busNumberSelect.value = "1013"; // 11th Grade
+                break;
+            case '12A':
+            case '12B':
+                busNumberSelect.value = "1014"; // 12th Grade
+                break;
+            default:
+                busNumberSelect.value = ""; // Default case if no grade matches
+                break;
+        }
+    }
+</script>

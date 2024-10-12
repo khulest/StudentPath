@@ -1,0 +1,107 @@
+﻿
+@model IEnumerable<StudentPath.Models.ClassAttendence>
+
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .table {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Merge borders */
+        margin-top: 20px; /* Space above the table */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for the table */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Round corners of the table */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+        .table th, .table td {
+            padding: 12px; /* Add padding for spacing */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border for table rows */
+        }
+
+        .table th {
+            background-color: rgba(0, 123, 255, 0.8); /* Light blue background for headers */
+            color: white; /* White text for headers */
+            font-weight: bold; /* Bold font for headers */
+        }
+
+        .table tr:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Light hover effect on rows */
+        }
+
+        .table a {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .table a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+</style>
+
+
+<h1>Class Attendance</h1>
+
+<form method="get" action="/Home/ClassAttendance">
+    <label for="attendanceDate">Select Date:</label>
+    <input type="date" id="attendanceDate" name="attendanceDate" required>
+    <button type="submit">Fetch Records</button>
+</form>
+
+@if (Model.Any()) // Check if the Model has records
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Class)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.student)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Attended)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Teacher)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Class)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.student.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Attended)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Email)
+                    </td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No records exist for the selected date.</p>
+}

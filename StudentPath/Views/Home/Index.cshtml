@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay Informed</title>
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <style>
+        body {
+            background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+            background-size: cover;
+            height: auto;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: space-between; /* Ensure space between login and image sections */
+            align-items: flex-start;
+            height: auto;
+            width: 100%;
+            max-width: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            backdrop-filter: blur(10px); /* Background blur effect */
+            margin-top: 50px;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Create two equal-width columns */
+            grid-gap: 20px; /* Add space between the columns */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            backdrop-filter: blur(10px); /* Background blur effect */
+            margin-top: 50px;
+            width: 100%; /* Full width */
+            max-width: auto; /* Max width for larger screens */
+        }
+
+        .empowerment-text {
+           
+
+            color: #f7f7f7; /* Slightly off-white for better contrast */
+            background-color: rgba(0, 0, 0, 0.3); /* Increase transparency */
+            padding: 10px 20px; /* Add padding for better spacing */
+            border-radius: 8px; /* Round the corners of the background */
+            display: inline-block; /* Make it look like a block */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for emphasis */
+            width: 100%; /* Full width */
+            max-width: auto; /* Max width for larger screens */
+        }
+
+            .empowerment-text:hover {
+            transform: scale(1.05); /* Slightly enlarge image on hover */
+        }
+
+        .additional-container {
+            display: flex;
+            justify-content: space-between; /* Ensure space between login and image sections */
+            align-items: flex-start;
+            height: auto;
+            width: 100%;
+            max-width: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent white border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            backdrop-filter: blur(10px); /* Background blur effect */
+            margin-top: 50px;
+        }
+
+            .additional-container:hover {
+            transform: scale(1.05); /* Slightly enlarge image on hover */
+            }
+    </style>
+</head>
+<body>
+    <div class="additional-container">
+     <h1 class="text-center">Stay Informed</h1>
+    <p class="text-center">Receive timely updates and alerts regarding school events and announcements.</p>
+    </div>
+   
+    <div class="container button-container">
+       
+        
+
+            <div class=" empowerment-text col-md-6">
+                <a href="/Home/ClassAttendance">
+                    <div class="icon display-3">📝</div>
+                    <h3>Class Attendance</h3>
+                
+                </a>
+            <p class="text-center"> Track your child's attendance records effortlessly and stay informed.</p>
+            </div>
+
+            <div class=" empowerment-text col-md-6">
+                <a href="/Home/EmergencyContact">
+                    <div class="icon display-3">📞</div>
+                    <h3>Report</h3>
+                
+                </a>
+            <p class="text-center">School's emergency contact information.</p>
+            </div>
+
+            <div class=" empowerment-text col-md-6">
+            <div class="additional-container col-md-2 align-items-center">
+                <a href="/Home/Notifications" >
+                <div class="icon display-2">🚌🔔</div>
+                    <h5> Bus Notifications</h5>
+                </a>
+            </div>
+            <div class="additional-container col-md-2 align-items-center">
+            <a href="/Home/ClassNotifications">
+                <div class="icon display-2">📝🔔</div>
+                <h5> Class Notifications</h5>
+            </a>
+            </div>
+            <p class="text-center">Get alerts for the Activity of your child.</p>
+            </div>
+
+            <div class=" empowerment-text col-md-6">
+                <a href="/Home/BusAttendances" >
+                    <div class="icon display-3">🚌</div>
+                    <h3>Bus Attendance</h3>
+                
+                </a>
+            <p class="text-center">Review your child's bus attendance.</p>
+          
+            </div>
+
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿
+@{
+
+    var currentDate = DateTime.Now.ToString("yyyy-MM-dd"); // Format for date input
+}
+<style>
+    body {
+        background: url("https://images.pexels.com/photos/733852/pexels-photo-733852.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2") no-repeat center center fixed;
+        background-size: cover;
+        height: auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .table {
+        width: 100%; /* Full width */
+        border-collapse: collapse; /* Merge borders */
+        margin-top: 20px; /* Space above the table */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for the table */
+        border-radius: 8px; /* Rounded corners */
+        overflow: hidden; /* Round corners of the table */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+        .table th, .table td {
+            padding: 12px; /* Add padding for spacing */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border for table rows */
+        }
+
+        .table th {
+            background-color: rgba(0, 123, 255, 0.8); /* Light blue background for headers */
+            color: white; /* White text for headers */
+            font-weight: bold; /* Bold font for headers */
+        }
+
+        .table tr:hover {
+            background-color: rgba(0, 123, 255, 0.1); /* Light hover effect on rows */
+        }
+
+        .table a {
+            color: #007bff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+            .table a:hover {
+                text-decoration: underline; /* Underline on hover */
+            }
+
+</style>
+<form asp-action="Create" method="post">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Class</th>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Attended</th>
+            <th>Teacher</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < 10; i++)
+        {
+            <tr>
+                <td>
+                    <select name="[@i].Class" class="form-control">
+                        <option disabled selected>Add class</option>
+                        <option value="8A">8A</option>
+                        <option value="8B">8B</option>
+                        <option value="9A">9A</option>
+                        <option value="9B">9B</option>
+                        <option value="10A">10A</option>
+                        <option value="10B">10B</option>
+                        <option value="11A">11A</option>
+                        <option value="11B">11B</option>
+                        <option value="12A">12A</option>
+                        <option value="12B">12B</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="[@i].StudentId" class="form-control" asp-items="ViewBag.StudentId">
+                        <option value="">Select Student</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="date" name="[@i].Date" class="form-control" value="@currentDate" readonly /> <!-- Current date input -->
+                </td>
+                <td>
+                    <select name="[@i].Attended" class="form-control">
+                        <option value="Unmarked">Unmarked</option>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="[@i].TeacherId" class="form-control" asp-items="ViewBag.TeacherId"></select>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <input type="submit" value="Submit" class="btn btn-primary" />
+</div>
+</form>
